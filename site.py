@@ -1,12 +1,13 @@
 from flask import Flask
 from flask import redirect
 from flask import request
+import json
 
 # Cria o Site
 site = Flask(__name__)
 
 # Dict das URLs
-urls = {}
+urls = json.load(open('urls.json', 'r'))
 
 def gerar_form(retorno=''):
     return '''
@@ -33,12 +34,23 @@ def index():
         if request.form['path'] in urls.keys():
             return gerar_form('JÁ EXISTE ')
 
+        # Função de Caracteres proibidos
+        proibido = '/'
+        if request.form['path'].count(proibido) > 0:
+            return gerar_form(f'CARACTERES PROIBIDOS: {proibido}')
+
         # Gerar URL
+        # Se não tiver http/https na URL, ele adiciona
         if request.form['url'].find('http://') != 0 and request.form['url'].find('https://') != 0:
+            # Adicionando http
             nova_url = 'http://' + request.form['url']
         else:
             nova_url = request.form['url']
+
+        # Salva na variável e no json
         urls.update({request.form['path']: nova_url})
+        json.dump(urls, open('urls.json', 'w'))
+
         return gerar_form('URL GERADA\n\n' + str(urls))
 
     # Se for GET, apenas gerar os campos
