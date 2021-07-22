@@ -1,0 +1,80 @@
+/* Zerar todos os valores */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* IDs */
+#titulo {
+    font-family: 'Brush Script MT', cursive;
+    color: #030303;
+    margin-bottom: 3%;
+}
+
+/* Tags */
+fieldset {
+    border: 0;
+}
+
+body {
+    background-color: #ADBAC7;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2em;
+    color: #030303;
+    margin-top: 3%;
+    justify-content: center;
+    text-align: center;
+}
+
+input {
+    color: #030303;
+    font-family: 'Brush Script MT', cursive;
+    border-radius: 5px;
+    font-size: 0.6em;
+
+    margin-top: 2%;
+    margin-left: 15%;
+    width: 20%;
+    padding: 0.2em 0.6em;
+    border: 0;
+}
+
+/* Classes */
+.paragrafo {
+    margin-bottom: 1em;
+}
+
+.campo {
+    margin-bottom: 1em;
+}
+
+.campo label {
+    margin-bottom: 0.2em;
+    display: block;
+}
+
+.campo input[type="text"] {
+    padding: 0.2em;
+    border: 0;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: block;
+}
+
+.botao {
+    color: #fff;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    background-color: #347D39;
+    border: 0;
+    padding: 0.2em 0.6em 0.2em 0.6em;
+    font-size: 1.2em;
+    margin-top: 1%;
+}
+
+.botao:hover {
+    box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: none;
+}
+
+.botao, select {
+    cursor: pointer;
+}

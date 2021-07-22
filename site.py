@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import redirect
 from flask import request
+from flask import render_template
 import json
 
 # Cria o Site
@@ -10,13 +11,7 @@ site = Flask(__name__)
 urls = json.load(open('urls.json', 'r'))
 
 def gerar_form(retorno=''):
-    return '''
-                <form method="post">
-                    <p><input type=text name=path>
-                    <p><input type=text name=url>
-                    <p><input type=submit value=Gerar URL>
-                </form>
-            ''' + '\n' + retorno
+    return render_template('index.html') + '\n' + retorno
 
 
 @site.route('/', methods=['GET', 'POST'])
@@ -56,20 +51,6 @@ def index():
     # Se for GET, apenas gerar os campos
     return gerar_form()
 
-
-# Não precisa de 404 já que tudo será uma URL
-"""
-@site.errorhandler(404)
-def _404(erro):
-    return "<h1> [404] Página não encontrada </h1>"
-"""
-
-# [To-do] Se ficar dando redirect infinito
-"""
-@site.errorhandler(302)
-def _302(erro):
-    return redirect('/')
-"""
 
 # Joga tudo que não for INDEX para suas URLs
 @site.route('/<url>')
