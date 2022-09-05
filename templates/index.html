@@ -1,32 +1,33 @@
-<html>
+<!doctype html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" initial-scale="1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css.css')}}">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/style.css">
     <title>Encurtador de URLs</title>
 </head>
 <body>
-    <div>
-        <h1 id="titulo">Encurtador de Links</h1>
-        <p class="paragrafo">Preencha o primeiro campo com o caminho desejado e no segundo para onde será direcionado</p>
-        <p class="paragrafo">Exemplo: 1° google / 2° google.com</p>
-        <p class="paragrafo">dominio.com/google -> google.com</p>
-        <br>
-    </div>
-<form method="post">
-    <fieldset class="formulario">
-        <div class="campo">
-            <label for="path"><strong>Caminho:</strong></label>
-            <input type="text" name="path" id="path" required>
-        </div>
-        <div class="campo">
-            <label for="url"><strong>Link:</strong></label>
-            <input type="text" name="url" id="url" required>
-        </div>
-    </fieldset>
-    <div>
-        <button type="submit" class="botao"><strong>Gerar URL</strong></button>
-    </div>
-</form>
-</body>
+    <h1>ENCURTADOR DE LINKS</h1>
+    <form method="post">
+        <div class="campos">
+                <div class="texto">
+                    <label for="url">Link longo*</label>
+                </div>
+                <div class="campo">
+                    <input type="text" name="url" id="url" required>
+                </div>
+                <div class="texto">
+                    <label for="path">Nome curto*</label>
+                </div>
+                <div class="campo">
+                    <input type="text" name="path" id="path" required>
+                </div>
+                <div>
+                    <button type="submit" class="botao">Gerar URL</button>
+                </div>
+            </div>
+        </form>
+    </body>
 </html>
